@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 public class JDatePicker extends JPanel {
+    //graphic component (Swing)
     private JPanel bodyPanel;
     private JPanel monthPanel;
     private JPanel dayPanel;
@@ -18,6 +19,7 @@ public class JDatePicker extends JPanel {
     private JSpinner daySpinner;
     private JComboBox<String> monthCombo;
     private JSpinner yearSpinner;
+
     {
         //inizializing all the needed
         //adding listeners
@@ -38,6 +40,20 @@ public class JDatePicker extends JPanel {
         yearSpinner.setValue(c.getTime().getYear()+1900);
     }
 
+    public String[] getDate(){
+        String giorno = Integer.toString((int)(daySpinner.getValue()));
+        String mese = Integer.toString(monthCombo.getSelectedIndex()+1);
+        String anno = Integer.toString((int)(yearSpinner.getValue()));
+
+        if(giorno.length() == 1){
+            giorno = "0" + giorno;
+        }
+        if(mese.length() == 1){
+            mese = "0" + mese;
+        }
+        return new String[]{giorno, mese, anno};//day, month, year
+    }
+
     private class JDataPickerListener implements ChangeListener, ActionListener{ //creation of the class that implements the listeners
         @Override
         public void stateChanged(ChangeEvent changeEvent) { //implementation of ChangeListener
@@ -56,8 +72,8 @@ public class JDatePicker extends JPanel {
             }
             if(changeEvent.getSource().equals(daySpinner)){ // condiction about daySpinner
                 int day = (int)(daySpinner.getValue());
-                if(day < 0){
-                    daySpinner.setValue(0);
+                if(day < 1){
+                    daySpinner.setValue(1);
                 }if(day > 28){
                     int[] giorni = new int[]{31,28,31,30,31,30,31,31,30,31,30,31};
                     int mese = monthCombo.getSelectedIndex();
