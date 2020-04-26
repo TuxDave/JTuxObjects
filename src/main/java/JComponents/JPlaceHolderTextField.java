@@ -31,6 +31,15 @@ public class JPlaceHolderTextField extends JTextField{
         }
     }
 
+    @Override
+    public String getText() {
+        if(super.getText() == placeHolder){
+            return "";
+        }else{
+            return super.getText();
+        }
+    }
+
     private static class JPlaceHolderTextFieldListener implements FocusListener {
 
         @Override
