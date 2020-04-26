@@ -33,7 +33,7 @@ public class JPlaceHolderTextField extends JTextField{
 
     @Override
     public String getText() {
-        if(super.getText() == placeHolder){
+        if(super.getText().equals(placeHolder)){
             return "";
         }else{
             return super.getText();
