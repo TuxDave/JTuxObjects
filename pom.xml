@@ -9,6 +9,15 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>forms_rt</artifactId>
+            <version>7.0.3</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
     <distributionManagement>
         <repository>
             <id>github</id>
@@ -17,8 +26,31 @@
         </repository>
     </distributionManagement>
 
-    <groupId>com.TuxDave</groupId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <groupId>com.tuxdave</groupId>
     <artifactId>JTuxObjects</artifactId>
-    <version>2.1</version>
+    <version>3</version>
 
 </project>
