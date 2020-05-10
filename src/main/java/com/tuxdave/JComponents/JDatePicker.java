@@ -1,4 +1,4 @@
-package JComponents;
+package com.tuxdave.JComponents;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
