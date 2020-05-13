@@ -49,8 +49,8 @@
         </plugins>
     </build>
 
-    <groupId>com.tuxdave</groupId>
+    <groupId>com.TuxDave</groupId>
     <artifactId>JTuxObjects</artifactId>
-    <version>3.1.1</version>
+    <version>3.1.2</version>
 
 </project>
