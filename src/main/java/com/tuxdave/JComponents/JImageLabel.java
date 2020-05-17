@@ -24,8 +24,8 @@ public class JImageLabel extends JLabel {
         this.setPreferredSize(this.getMinimumSize());
     }
 
-    public void setImage(String _newImageURL, int _weigth, int _heigth) throws MalformedURLException {
-        src = new URL(_newImageURL);
+    public void setImage(URL _newImageURL, int _weigth, int _heigth) throws MalformedURLException {
+        src = _newImageURL;
         image = new ImageIcon(src);
         Image temp = image.getImage().getScaledInstance(_weigth, _heigth,Image.SCALE_DEFAULT);
         image.setImage(temp);
